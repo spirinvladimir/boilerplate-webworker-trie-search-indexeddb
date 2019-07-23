@@ -4,8 +4,8 @@
   "description": "Customers management",
   "main": "index.js",
   "scripts": {
-    "dev": "beefy src/controller.js",
-    "start": "browserify src/controller.js -o bundle.js",
+    "bulid": "browserify src/controller.js -o bundle.js",
+    "start": "beefy src/controller.js $PORT",
     "lint": "eslint src --ignore-pattern localforage.min.js --ignore-pattern src/search.js",
     "test": "mocha test/search.js"
   },
