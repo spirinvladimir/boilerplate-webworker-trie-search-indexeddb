@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "bulid": "browserify src/controller.js -o bundle.js",
+    "dev": "beefy src/controller.js",
     "start": "beefy src/controller.js $PORT",
     "lint": "eslint src --ignore-pattern localforage.min.js --ignore-pattern src/search.js",
     "test": "mocha test/search.js"
