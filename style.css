@@ -1,0 +1,328 @@
+body {
+    margin: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+#selector {
+    display: flex;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+#view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: all 0.3s ease-in;
+}
+.customer {
+    height: 100px;
+    margin: 20px 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.customer:hover {
+    box-shadow: 0 0 1px;
+    border-radius: 25px;
+    background-color: rgba(253, 253, 253, 1)
+}
+.customer.hide {
+    display: none;
+}
+
+.customer .revert {
+    display: none;
+    order: 7;
+}
+.customer.edit .revert {
+    display: block;
+}
+.customer.edit .revert:hover {
+    color: orange;
+    cursor: pointer;
+}
+.customer .confirm {
+    display: none;
+    order: 6;
+}
+.customer.edit .confirm {
+    display: block;
+}
+.customer.edit .confirm.disable {
+    pointer-events: none;
+    opacity: 0.4;
+}
+.customer.edit .confirm:hover {
+    color: green;
+    cursor: pointer;
+}
+.customer .remove {
+    display: none;
+    order: 9;
+}
+.customer .remove:hover {
+    color: red;
+    cursor: pointer;
+}
+.customer .edit:hover {
+    color: blue;
+    cursor: pointer;
+}
+.customer .input-first-name {
+    display: none;
+    order: 2;
+}
+.customer .first-name {
+    order: 2;
+}
+.customer.edit .input-first-name {
+    display: block;
+}
+.customer.edit .input-first-name.error {
+    border-color: red;
+}
+.customer.edit .first-name {
+    display: none;
+}
+.customer .input-last-name {
+    display: none;
+    order: 3;
+}
+.customer .last-name {
+    order: 3;
+}
+.customer.edit .input-last-name {
+    display: block;
+}
+.customer.edit .input-last-name.error {
+    border-color: red;
+}
+.customer.edit .last-name {
+    display: none;
+}
+.customer .input-email {
+    display: none;
+    order: 4;
+}
+.customer .email {
+    order: 4;
+}
+.customer.edit .input-email {
+    display: block;
+}
+.customer.edit .input-email.error {
+    border-color: red;
+}
+.customer.edit .email {
+    display: none;
+}
+.customer .select-country {
+    display: none;
+    order: 5;
+}
+.customer .country {
+    order: 5;
+}
+.customer.edit .select-country {
+    display: block;
+}
+.customer.edit .select-country.error {
+    border-color: red;
+}
+.customer.edit .country {
+    display: none;
+}
+#view.edit .customer .remove {
+    display: block;
+}
+#view.edit .customer .edit {
+    display: block;
+}
+.customer .edit {
+    display: none;
+    order: 8;
+}
+.customer .face {
+    order: 1;
+}
+#edit {
+    background-color: lightblue;
+    margin-top: 3%;
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+}
+#edit.active {
+    display: flex;
+}
+#view.edit .customer .edit {
+    display: block;
+}
+#first-name, #last-name, #email {
+    height: 40px;
+    width: 100%;
+    padding: 10px 10px;
+    margin: 30px 30px;
+    font-size: 22px;
+}
+#first-name.error, #last-name.error, #email.error, #countries.error {
+    border-color: red;
+}
+#submit {
+    font-size: 48px;
+    margin: 30px 30px;
+}
+#submit.disable {
+    pointer-events: none;
+    color: grey;
+}
+#submit:hover {
+    color: green;
+    cursor: pointer;
+}
+#countries {
+    font-size: 22px;
+    border-top-right-radius: 30px;
+    min-height: 60px;
+    background-color: white;
+}
+
+#header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#header i {
+    font-size: 42px;
+}
+input[type=text] {
+    border-width: thin;
+    border-style: none;
+    border-bottom-style: dotted;
+}
+input[type=text]:focus {
+    outline: none;
+    border-bottom-style: solid;
+}
+#input_search {
+    width: 50%;
+    font-size: 38px;
+}
+#search_container i {
+    font-size: 48px;
+}
+#countries {
+    font-size: 22px;
+    border-top-right-radius: 30px
+}
+#countries:focus {
+    outline: none;
+}
+.tgl {
+  display: none;
+}
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+.tgl::-moz-selection, .tgl:after::-moz-selection, .tgl:before::-moz-selection, .tgl *::-moz-selection, .tgl *:after::-moz-selection, .tgl *:before::-moz-selection, .tgl + .tgl-btn::-moz-selection {
+  background: none;
+}
+.tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+  background: none;
+}
+.tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 4em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+.tgl + .tgl-btn:after {
+  left: 0;
+}
+.tgl + .tgl-btn:before {
+  display: none;
+}
+
+.tgl-flat + .tgl-btn {
+  padding: 2px;
+  transition: all .1s ease;
+  background: #fff;
+  border: 4px solid grey;
+  border-radius: 2em;
+}
+.tgl-flat + .tgl-btn:after {
+  transition: all .1s ease;
+  background: grey;
+  content: "";
+  border-radius: 1em;
+}
+.tgl-flat:checked + .tgl-btn {
+  border: 4px solid lightblue;
+}
+.tgl-flat:checked + .tgl-btn:after {
+  left: 50%;
+  background: lightblue;
+}
+
+
+#caption, #caption:hover {
+    border-style: none !important;
+    font-size: 25px !important;
+    font-weight: bold !important;
+    color: lightgrey !important;
+    box-shadow: none !important;
+    background-color: none !important;
+    pointer-events: none !important;
+}
+#caption.hide {
+    display: none;
+}
+
+.error-msg {
+    color: red;
+    position: absolute;
+    left: 2%;
+    top: 80%;
+    width: 98%;
+    height: 10%;
+    display: none;
+    font-size: small;
+}
+.error-msg.active {
+    display: block;
+}
+
+#add-caption {
+    position: absolute;
+    left: 2%;
+    top: -20%;
+    width: 98%;
+    height: 20%;
+    font-size: small;
+}
