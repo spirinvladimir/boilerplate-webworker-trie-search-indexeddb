@@ -17,9 +17,16 @@ const
         state.trie = create_trie()
         return state
     },
+    STATE = String('state-' + Date.now()),
     COUNTRIES_PUBLIC_LINK = 'https://restcountries.eu/rest/v2/all',
-    save = state => localforage.setItem(DB_KEY.STATE, JSON.stringify(state)),
-    load = () => localforage.getItem(DB_KEY.STATE).then(_ => JSON.parse(_)),
+    save = state => {
+        self[STATE] = state
+        return localforage.setItem(DB_KEY.STATE, JSON.stringify(state))
+    },
+    load = () =>
+        self[STATE]
+            ? console.log(self[STATE]) || Promise.resolve(self[STATE])
+            : localforage.getItem(DB_KEY.STATE).then(_ => JSON.parse(_)),
     customer2search_payload = customer => [
         customer.first_name,
         customer.last_name,
@@ -38,7 +45,6 @@ localforage.ready(() =>
                             const
                                 state = set_defaults_to_state({countries})
 
-                            state.countries = countries
                             return save(state).then(() => state)
                         })
         )
